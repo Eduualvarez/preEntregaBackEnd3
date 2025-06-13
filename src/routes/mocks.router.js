@@ -1,48 +1,50 @@
 import { Router } from "express";
 import { request, response } from "express";
-import { faker } from "@faker-js/faker";
-import Pet from "../dao/Pets.dao.js";
+import GenerateDataController from "../controllers/generateData.controller.js";
+import { mockingUsers } from "../utils/mockUsers.js";
+import { mockPets } from "../utils/mockPets.js";
+import UserRepository from "../repository/UserRepository.js";
 const router = Router();
 router.get("/mockingpets/:pid?", async (req = request, res = response) => {
+  const pid = parseInt(req.params.pid);
+  try {
+    if (pid <= 0 || isNaN(pid) || !pid) throw new Error;
+    const pets = mockPets(pid);
+    res.status(200).send({ status: "success", payload: pets });
+  } catch (error) {
+    console.log(
+      `error: \t${error.stack.split("at")[0]}`,
+      `method request: \t${req.method}`
+    );
+    if (error)
+      res
+        .status(400)
+        .send({ error: `proporcione una cantidad de mascotas a generar` });
+  } //bloque catch
+}); //endpoint GET
 
-    const pid = parseInt(req.params.pid);
-    
-try {
-     const generatePets = (pid)=>{ 
-       if ( pid <= 0 || isNaN(pid)) res.status(400).send({error:`proporcione una cantidad de mascotas a generar`})
-      
-        const pets = [];
-    
-    for (let i = 0; i < pid; i+=1) {
-       const specie = (i%2==0)
-        ?faker.animal.cat()
-        :faker.animal.dog();
-
-
-       const pet = {
-            
-            name:faker.person.firstName(),
-            specie:specie,
-            birthDate:faker.date.birthdate({ mode: 'year', min: 1995, max: 2005 }),
-           
-            
-
-       }
-           pets.push(pet)}//for
-          
-        return pets
+router.get("/mockingusers/:uid?", async (req = request, res = response) => {
+  try {
+    const userId = req.params.uid
+    const users = await mockingUsers(userId);
+    res.status(200).send({ status: "success", payload: users });
+  } catch (error) {
+    console.log(`error:${error.stack} \t method:${req.method}`);
+    res.status(404).send({ status: "error" });
+  }//catch
+}); //endpoint GET
+router.post("/generateData/:users/:pets",async (req = request, res = response) => {
+    try {
+        const users = parseInt(req.params.users);
+        const pets = parseInt(req.params.pets);
         
-        }//funcion
-      const pets =  generatePets(pid);
-      const pet_to_create = new Pet()
-     pets.forEach(pet => {
-        pet_to_create.save(pet)
-     });
-     res.status(200).send({status:"success", payload:pets})
-     
-     } catch (error) {
-    console.log( `error: \t${error.stack.split("at")[0]}`,`method request: \t${req.method}`)
-}//bloque catch
-});//endpoint GET
-
+        
+        await   GenerateDataController.generateAndUploadData(users, pets )
+        res.status(201).send({status:"created with success"})
+    } catch (error) {
+        
+        res.status(400).send({status:"error, especificar cantidad de usuarios y mascotas"})
+    }
+    
+})//endpoint POST
 export default router;
