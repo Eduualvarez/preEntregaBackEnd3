@@ -2,7 +2,7 @@ import { adoptionsService, petsService, usersService } from "../services/index.j
 
 const getAllAdoptions = async(req,res)=>{
     const result = await adoptionsService.getAll();
-    res.send({status:"success",payload:result})
+    res.status(200).send({status:"success",payload:result})
 }
 
 const getAdoption = async(req,res)=>{

@@ -3,7 +3,7 @@ import { request, response } from "express";
 import GenerateDataController from "../controllers/generateData.controller.js";
 import { mockingUsers } from "../utils/mockUsers.js";
 import { mockPets } from "../utils/mockPets.js";
-import UserRepository from "../repository/UserRepository.js";
+
 const router = Router();
 router.get("/mockingpets/:pid?", async (req = request, res = response) => {
   const pid = parseInt(req.params.pid);
@@ -47,4 +47,9 @@ router.post("/generateData/:users/:pets",async (req = request, res = response) =
     }
     
 })//endpoint POST
+
+
+
+
+
 export default router;
