@@ -3,9 +3,9 @@ import request from 'supertest';
 import { jest } from '@jest/globals';
 
 process.env.NODE_ENV = 'test';
-//los test son de chatgpt, ya que me complico
+
 // Mock de servicios del index.js
-await jest.unstable_mockModule('../src/services/index.js', () => ({
+ jest.unstable_mockModule('../src/services/index.js', () => ({
   adoptionsService: {
     getAll: jest.fn().mockResolvedValue([{ id: 'a1', pet: 'perro' }]),
     getBy: jest.fn().mockImplementation(({ _id }) =>
@@ -42,14 +42,7 @@ describe('🔁 Rutas de Adopciones', () => {
         payload: [{ id: 'a1', pet: 'perro' }]
       });
     });
-     it('debe devolver lista de adopciones', async () => {
-      const res = await request(app).get('/api/adoptions');//no coincide con lo que se espera que devuelva 
-      expect(res.status).toBe(200);
-      expect(res.body).toEqual({
-        status: 'success',
-        payload: [{ id: 'a1', pet: 'perro con error' }]
-      });
-    });
+  
   });
 
   describe('GET /api/adoptions/:aid', () => {
@@ -100,9 +93,5 @@ describe('🔁 Rutas de Adopciones', () => {
       expect(res.body.error).toBe('Pet is already adopted');
     });
     
-    it('debe fallar si la mascota ya fue adoptada', async () => {
-      const res = await request(app).post('/api/adoptions/u1/p1');//mascota ya adoptada 
-      expect(res.status).toBe(400);
-      expect(res.body.error).toBe('Pet is already adopted');
-    });
+   
   })})
