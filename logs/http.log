@@ -136,3 +136,5 @@
 [2025-07-11T20:15:25.016Z] [31merror[39m: [31madoption not found[39m
 [2025-07-11T20:18:21.703Z] [32minfo[39m: [32m✅ Servidor HTTPS corriendo en: https://localhost:8080[39m
 [2025-07-11T20:18:32.244Z] [36mhttp[39m: [36mmetodo: GET route /[39m
+[2025-07-11T20:45:02.890Z] [36mhttp[39m: [36mmetodo: GET route /[39m
+[2025-07-14T00:17:32.622Z] [32minfo[39m: [32m✅ Servidor HTTPS corriendo en: https://localhost:8080[39m

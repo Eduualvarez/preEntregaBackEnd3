@@ -1,0 +1,27 @@
+
+
+services:
+  app:
+    image: proyectoBackend3
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - MONGO_URL=mongodb://mongo:27017/adopciones_db
+      - PORT=8080
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
