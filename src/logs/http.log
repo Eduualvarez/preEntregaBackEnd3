@@ -4,3 +4,8 @@
 [2025-07-15T00:55:29.903Z] [32minfo[39m: [32mservidor corriendo en http://localhost:8080[39m
 [2025-07-15T00:59:48.883Z] [32minfo[39m: [32mservidor corriendo en http://localhost:8080[39m
 [2025-07-15T01:00:43.346Z] [32minfo[39m: [32mservidor corriendo en http://localhost:8080[39m
+[2025-07-15T21:46:06.154Z] [32minfo[39m: [32mservidor corriendo en http://localhost:8080[39m
+[2025-07-15T21:47:12.302Z] [36mhttp[39m: [36mmetodo: GET route /[39m
+[2025-07-15T21:47:44.411Z] [31merror[39m: [31merror adoption not found[39m
+[2025-07-15T21:47:44.412Z] [36mhttp[39m: [36mmetodo: GET route /:aid[39m
+[2025-07-15T23:04:29.550Z] [32minfo[39m: [32mservidor corriendo en http://localhost:8080[39m
