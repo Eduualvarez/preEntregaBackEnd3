@@ -1,3 +1,8 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 
 
@@ -11,9 +16,9 @@ export const options = {
     },
     servers: [
       {
-        url: 'https://localhost:8080',
+        url: 'http://localhost:8080',
       }, 
     ],
   },
-  apis: ['./src/**/*.js'], // <--- ESTA DEBE COINCIDIR con la ubicación real del archivo con @swagger
+  apis: [path.resolve(__dirname, '../routes/*.js')], 
 };

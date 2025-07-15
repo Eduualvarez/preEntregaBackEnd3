@@ -1,0 +1,26 @@
+
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.development
+    depends_on:
+      - mongo
+    volumes:
+      - ./src:/app/src
+    restart: always
+    working_dir: /app/src
+
+  mongo:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: always
+
+volumes:
+  mongo-data:

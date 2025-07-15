@@ -17,7 +17,9 @@ import { options } from './config/swaggerOptions.js';
 
  const app = express();
  
-const specs = swaggerJsdoc(options)
+const specs = swaggerJsdoc(options);
+
+console.log(specs.paths)
 app.use(cors(corsOptions))
 app.use(express.json());
 app.use(cookieParser());

@@ -125,3 +125,16 @@
 [2025-07-11T20:15:25.016Z] [31merror[39m: [31madoption not found[39m
 [2025-07-11T20:18:21.703Z] [32minfo[39m: [32m✅ Servidor HTTPS corriendo en: https://localhost:8080[39m
 [2025-07-11T20:18:32.244Z] [36mhttp[39m: [36mmetodo: GET route /[39m
+[2025-07-14T03:56:05.281Z] [36mhttp[39m: [36mmetodo: GET route /[39m
+[2025-07-14T03:56:05.356Z] [31merror[39m: [31merror adoption not found[39m
+[2025-07-14T03:56:05.358Z] [36mhttp[39m: [36mmetodo: GET route /:aid[39m
+[2025-07-14T03:56:05.373Z] [31merror[39m: [31madoption not found[39m
+[2025-07-14T03:56:05.385Z] [36mhttp[39m: [36madoption success 	request method POST ruote /:uid/:pid[39m
+[2025-07-14T03:56:05.401Z] [31merror[39m: [31muser not found[39m
+[2025-07-14T03:56:05.417Z] [31merror[39m: [31mpet not found[39m
+[2025-07-14T04:01:46.621Z] [32minfo[39m: [32m✅ Servidor HTTPS corriendo en: https://localhost:8080[39m
+[2025-07-14T04:06:44.231Z] [32minfo[39m: [32mservidor corriendo en https://localhost:8080[39m
+[2025-07-14T04:09:13.407Z] [32minfo[39m: [32mservidor corriendo en http://localhost:8080[39m
+[2025-07-14T04:10:55.022Z] [32minfo[39m: [32mservidor corriendo en http://localhost:8080[39m
+[2025-07-14T23:44:28.347Z] [32minfo[39m: [32mservidor corriendo en http://localhost:8080[39m
+[2025-07-14T23:44:37.693Z] [32minfo[39m: [32mservidor corriendo en http://localhost:8080[39m

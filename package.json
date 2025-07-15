@@ -2,10 +2,10 @@
   "name": "plantilladocumentacion",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/server.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch --env-file=.env.development src/server.js",
+    "start": "node --watch --env-file=.env.development src/server.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "keywords": [],
